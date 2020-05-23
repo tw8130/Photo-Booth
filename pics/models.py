@@ -11,7 +11,7 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
     
-    def update_location(self):
+    def update_location(self,update):
         self.loc_name = update
         self.save()
     
@@ -32,7 +32,7 @@ class Category(models.Model):
     def delete_category(self):
         self.delete()
     
-    def update_category(self, id):
+    def update_category(self, update):
         self.cat_name = update
         self.save()
     
@@ -52,7 +52,32 @@ class Image(models.Model):
 
     class Meta:
         ordering = ('-id',)
+
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+    
+    def update_image(self,update):
+        self.title = update
+        self.save()
     
     def __str__(self):
         return self.title
+    
+    @classmethod
+    def get_all_images(cls):
+        all_images = Image.objects.all()
+        return all_images
+    
+    @classmethod
+    def get_image_id(cls, id):
+        the_image = Image.objects.get(id =id)
+        return the_image
+    
+    @classmethod
+    def filter_by_location(cls, id):
+        images = Image.objects.filter(location_id = id)
+        return images
 
