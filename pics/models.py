@@ -19,12 +19,26 @@ class Location(models.Model):
     def get_location_id(cls ,id):
         location = Location.objects.get(pk =id)
         return location
-        
+
     def __str__(self):
         return self.loc_name
 
 class Category(models.Model):
     cat_name = models.CharField(max_length =30)
+
+    def save_category(self):
+        self.save()
+    
+    def delete_category(self):
+        self.delete()
+    
+    def update_category(self, id):
+        self.cat_name = update
+        self.save()
+    
+    def get_category_id(cls, id):
+        category = Category.object.get(pk = id)
+        return category
 
     def __str__(self):
         return self.cat_name
