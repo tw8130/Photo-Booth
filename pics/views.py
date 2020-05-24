@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
+from .models import Image
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'welcome.html')
+    images = Images.objects.all()
+    return render(request, 'welcome.html' ,{'images':images})
 
 def pics_of_day(request):
     date = dt.date.today()
@@ -20,3 +22,16 @@ def convert_dates(dates):
     # Returning the actual day of the week
     day = days[day_number]
     return day
+
+def search_results(request):
+    
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_photos = Image.search_by_category(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-pics/search.html',{"message":message,"photos": searched_photos})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-pics/search.html',{"message":message})
