@@ -7,3 +7,5 @@ urlpatterns = [
     path('today/',views.pics_of_day,name='picsToday'),
     path('search/', views.search_results, name='search_results')
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
