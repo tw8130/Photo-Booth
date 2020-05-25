@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
 import datetime as dt
-from .models import Image
+from .models import Image,Location ,Category
 
 # Create your views here.
 def welcome(request):
@@ -35,3 +35,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-pics/search.html',{"message":message})
+    
+def display_image(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request ,'all-pics/image.html',{"image":image})
+
