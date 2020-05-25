@@ -5,7 +5,7 @@ from .models import Image,Location ,Category
 
 # Create your views here.
 def welcome(request):
-    images = Images.objects.all()
+    images = Image.objects.all()
     return render(request, 'welcome.html' ,{'images':images})
 
 def pics_of_day(request):
