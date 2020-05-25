@@ -17,6 +17,7 @@
     {% for image in photos %}
       <div class="col-sm-6 col-md-3">
           <h1>{{image.title}}</h1>
+          <img src="{{image.image.url}}" style="width: 70%;">
       </div>
     {% endfor %}
   {% endif %}
