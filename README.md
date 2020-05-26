@@ -37,16 +37,16 @@ Here is my link to my project.
 <a href="https://tw8130.github.io/GIT-HUB/">View</a>
 
 # Technologies Used
-Python ( ver 3.6 )
-Django ( ver 3.0.6 )
-Django Bootstrap 3
-PostgreSQL
-Heroku
+* Python ( ver 3.6 )
+* Django ( ver 3.0.6 )
+* Django Bootstrap 3
+* PostgreSQL
+* Heroku
 
 # Acknowledgements
-W3Schools
-Stack Overflow
-Google
+* W3Schools
+* Stack Overflow
+* Google
 
 ## KNOWN BUGS:
 Any bugs noted you can email me for clarification.
